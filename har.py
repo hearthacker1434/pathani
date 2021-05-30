@@ -4,7 +4,7 @@ import os, sys, time, datetime, re, threading, json, random, requests, hashlib, 
 from multiprocessing.pool import ThreadPool
 from requests.exceptions import ConnectionError
 __author__ = 'Haris Ali'
-__copyright = 'All rights reserved . Copyright  Mr Pardesi'
+__copyright = 'All rights reserved . Copyright  Mr Haris'
 os.system('termux-setup-storage')
 try:
     os.mkdir('/sdcard/ids')

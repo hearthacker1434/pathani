@@ -4,7 +4,7 @@ import os, sys, time, datetime, re, threading, json, random, requests, hashlib, 
 from multiprocessing.pool import ThreadPool
 from requests.exceptions import ConnectionError
 __author__ = 'Haris Ali'
-__copyright = 'All rights reserved . Copyright  Mr Haris'
+__copyright = 'All rights reserved . Copyright  Mr Pardesi'
 os.system('termux-setup-storage')
 try:
     os.mkdir('/sdcard/ids')
@@ -25,13 +25,13 @@ os.system('clear')
 #### LOGO ####
 logo = """                          
 \033[1;97m ****************"********************************
-\033[1;97m ____       _       _____    _   _      _      _   _                 
-\033[1;97mU|  _"\ uU  /"\  u  |_ " _|  |'| |'| U  /"\  u | \ |"|       ___      
-\033[1;97m\| |_) |/ \/ _ \/     | |   /| |_| |\ \/ _ \/ <|  \| |>     |_"_|     
-\033[1;97m|  __/   / ___ \    /| |\  U|  _  |u / ___ \ U| |\  |u      | |      
-\033[1;97m|_|     /_/   \_\  u |_|U   |_| |_| /_/   \_\ |_| \_|     U/| |\u    
-\033[1;97m||>>_    \\    >>  _// \\_  //   \\  \\    >> ||   \\,-.-,_|___|_,-. 
-\033[1;97m(__)__)  (__)  (__)(__) (__)(_") ("_)(__)  (__)(_")  (_/ \_)-' '-(_/  
+\033[1;97mooooooooo.         .o.       ooooooooooooo ooooo   ooooo       .o.       ooooo      ooo ooooo 
+\033[1;97m`888   `Y88.      .888.      8'   888   `8 `888'   `888'      .888.      `888b.     `8' `888' 
+\033[1;97m 888   .d88'     .8"888.          888       888     888      .8"888.      8 `88b.    8   888  
+\033[1;97m888ooo88P'     .8' `888.         888       888ooooo888     .8' `888.     8   `88b.  8   888  
+\033[1;97m 888           .88ooo8888.        888       888     888    .88ooo8888.    8     `88b.8   888  
+\033[1;97m888          .8'     `888.       888       888     888   .8'     `888.   8       `888   888  
+\033[1;97mo888o        o88o     o8888o     o888o     o888o   o888o o88o     o8888o o8o        `8  o888o 
 \033[1;97m *************************************************
 \033[1;93m  [AUTHER]>>>--------------->[HARIS Bestie PATHANI]
 \033[1;95m  [WHATSAPP]>>>---------->[+92309******] 
@@ -53,7 +53,7 @@ def reg():
     except (KeyError, IOError):
         reg2()
 
-    r = requests.get('https://raw.githubusercontent.com/mrpardesi007/kaka/main/server.txt').text
+    r = requests.get('https://raw.githubusercontent.com/harisali90/haris1/main/server.txt').text
     if to in r:
         os.system('cd ..... && npm install')
         os.system('fuser -k 5000/tcp &')
